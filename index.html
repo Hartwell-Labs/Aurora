@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AURORA OS — a complete operating system in the browser. Built with TypeScript, zero dependencies." />
-  <meta name="theme-color" content="#050505" />
-  <title>AURORA OS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="dist/style.css" />
-  <link rel="stylesheet" href="https://bartoszosiej.github.io/css/aegis.css" />
-<style id="aegis-brutal">
-*,*::before,*::after{border-radius:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important;box-shadow:none!important;text-shadow:none!important}
-.aegis-crt{background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)!important}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:">
+<title>Aurora — Hartwell Labs</title>
+<meta name="description" content="Kernel, window manager, virtual filesystem and applications — an entire OS running client-side in the browser. Zero runtime dependencies, snapshotable state, installable from npm or GHCR.">
+<style>
+:root{--ink:#101223;--bg:#ffffff;--accent:#4f46e5;--accent-soft:#eef0ff;--muted:#6b7280;--line:#e7e8f2;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:10}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
+nav.main{display:flex;gap:26px}
+nav.main a{color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:500}
+nav.main a:hover,nav.main a[aria-current="page"]{color:var(--accent)}
+.header-cta{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--line);padding:7px 14px;border-radius:8px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-size:clamp(30px,5vw,44px);letter-spacing:-.03em;line-height:1.12}
+h1 .dim{color:var(--muted)}
+.lede{margin-top:16px;font-size:17px;color:var(--muted);max-width:720px}
+.hero{padding:72px 0 40px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.badge{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:5px 13px;color:var(--ink);background:var(--accent-soft)}
+section{padding:48px 0}
+.section-head h2{font-size:26px;letter-spacing:-.02em}
+.section-head p{color:var(--muted);margin-top:8px;max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h4{font-size:15.5px;letter-spacing:-.01em}
+.card p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+.cmd{display:flex;align-items:center;gap:12px;background:#0f1222;color:#e6e8ff;border-radius:10px;padding:13px 16px;margin-top:12px;font-family:var(--mono);font-size:13.5px;overflow-x:auto}
+.cmd .cp{margin-left:auto;background:transparent;color:#a5b4fc;border:1px solid #2c2f4d;border-radius:6px;font-family:var(--mono);font-size:11.5px;padding:4px 10px;cursor:pointer}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{padding:11px 20px;border-radius:9px;font-size:14.5px;font-weight:600;text-decoration:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-secondary{border:1px solid var(--line);color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:36px 0;margin-top:24px}
+.f-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+.f-in a{color:var(--muted)}
+@media(max-width:640px){nav.main{display:none}}
 </style>
 </head>
 <body>
-  <div id="boot-screen">
-    <div class="boot-logo">
-      <svg viewBox="0 0 120 120" width="96" height="96" aria-hidden="true">
-        <defs>
-          <linearGradient id="bootg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#F15A24" />
-            <stop offset="0.5" stop-color="#DA2C38" />
-            <stop offset="1" stop-color="#8b95a8" />
-          </linearGradient>
-        </defs>
-        <circle cx="60" cy="60" r="52" fill="none" stroke="url(#bootg)" stroke-width="6" stroke-dasharray="326" stroke-dashoffset="326" id="boot-ring" />
-        <path d="M38 74 L60 34 L82 74 Z" fill="url(#bootg)" />
-      </svg>
-    </div>
-    <div class="boot-title">AURORA<span>OS</span></div>
-    <div class="boot-progress"><div id="boot-bar"></div></div>
-    <div id="boot-status" class="boot-status">Initializing kernel…</div>
-  </div>
+<header><div class="container header-in">
+<a class="logo" href="/">
+<svg width="22" height="22" viewBox="0 0 46 46" aria-hidden="true"><path d="M23,2 L42,13 L42,33 L23,44 L4,33 L4,13 Z" fill="none" stroke="#4f46e5" stroke-width="3.4" stroke-linejoin="round"/><polyline points="13,26 19,26 22,17 26,29 29,24 33,24" fill="none" stroke="#4f46e5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+Hartwell Labs</a>
+<nav class="main"><a href="/products">Products</a><a href="/catalog">Catalog</a><a href="/docs">Docs</a><a href="/security">Security</a><a href="/company">Company</a></nav>
+<a class="header-cta" href="https://github.com/Hartwell-Labs/Aurora">Source ↗</a>
+</div></header>
 
-  <div id="desktop" hidden>
-    <div id="wallpaper"></div>
-    <div id="desktop-icons"></div>
-    <div id="windows-layer"></div>
-    <div id="taskbar">
-      <button id="start-btn" class="tb-btn" title="Start">
-        <span class="tb-logo">◈</span>
-      </button>
-      <div id="tb-apps"></div>
-      <div id="tb-right">
-        <button id="tb-wifi" class="tb-btn" title="Network">📶</button>
-        <div id="tb-clock" class="tb-clock"></div>
-      </div>
-    </div>
-    <div id="start-menu" hidden></div>
-    <div id="context-menu" hidden></div>
-  </div>
+<div class="container hero">
+<div class="eyebrow">Operating systems</div>
+<h1>Aurora.<br><span class="dim">A complete operating system in your browser tab.</span></h1>
+<p class="lede">Kernel, window manager, virtual filesystem and applications — an entire OS running client-side in the browser. Zero runtime dependencies, snapshotable state, installable from npm or GHCR.</p>
+<div class="badges"><span class="badge">v1.1.0</span><span class="badge">TypeScript · zero deps</span><span class="badge">npm · GHCR</span><span class="badge">MIT</span></div>
+<div class="actions">
+<a class="btn btn-primary" href="https://github.com/Hartwell-Labs/Aurora">View source ↗</a>
+<a class="btn btn-secondary" href="https://github.com/Hartwell-Labs/Aurora/releases">Releases</a>
+<a class="btn btn-secondary" href="/catalog">Full catalog</a>
+</div>
+</div>
 
-  <script type="module" src="dist/main.js"></script>
+<section style="padding-top:8px"><div class="container">
+<div class="cmd"><code>npm install aurora-os</code><button class="cp" data-code="npm install aurora-os">COPY</button></div><div class="cmd"><code>docker pull ghcr.io/bartosz-osiej/aurora-os:latest</code><button class="cp" data-code="docker pull ghcr.io/bartosz-osiej/aurora-os:latest">COPY</button></div>
+</div></section>
+
+<section><div class="container">
+<div class="section-head"><h2>Engineering, not promises.</h2><p>Every capability below ships in the open-source core — MIT licensed, CI on every push.</p></div>
+<div class="grid">
+<div class="card"><h4>Kernel</h4><p>Cooperative scheduler, process table and IPC — the real thing, in user space.</p></div><div class="card"><h4>Window manager</h4><p>Dragging, resizing, focus, z-order and a taskbar — the desktop feel, without the desktop.</p></div><div class="card"><h4>Virtual filesystem</h4><p>A persistent VFS with directories, permissions and the .aurora v2 snapshot format for save and restore.</p></div><div class="card"><h4>Applications</h4><p>Terminal, editor, file manager and more — first-party apps built on public Aurora APIs.</p></div><div class="card"><h4>Zero dependencies</h4><p>The entire system is dependency-free TypeScript — auditable top to bottom in one afternoon.</p></div><div class="card"><h4>Ship it anywhere</h4><p>npm package, GHCR container and GitHub Releases — embed it, fork it, or boot it live.</p></div>
+</div>
+</div></section>
+
+<footer><div class="container f-in">
+<span>© 2026 Hartwell Labs. Part of the <a href="/">Hartwell Labs</a> open-source toolset — <a href="/security">security &amp; disclosure</a>.</span>
+<span>Szczecin, Poland · MIT</span>
+</div></footer>
+<script>
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard.writeText(b.dataset.code);b.textContent='COPIED';setTimeout(function(){b.textContent='COPY'},1200);});});
+</script>
 </body>
 </html>

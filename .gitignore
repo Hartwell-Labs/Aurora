@@ -1,9 +1,0 @@
-# platform
-.DS_Store
-*.log
-
-node_modules/
-dist/
-dist-test/
-*.log
-.DS_Store
