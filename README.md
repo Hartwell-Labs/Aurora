@@ -1,12 +1,17 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=hollow&color=0:2cb67d,50:7f5af0,100:0d1117&height=140&section=header&text=Aurora&fontSize=38&fontColor=7f5af0&desc=a%20complete%20operating%20system%20running%20in%20your%20browser&descSize=15&descAlignY=72" width="100%" />
+<img src="https://raw.githubusercontent.com/Hartwell-Labs/.github/main/profile/assets/hartwell-logo.svg" width="72" alt="Hartwell Labs" />
 
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![npm](https://img.shields.io/badge/npm-aurora--os-blue?style=flat-square&logo=nodedotjs)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat-square&logo=typescript)
-![Docker](https://img.shields.io/badge/Docker-GHCR-2496ED?style=flat-square&logo=docker)
-![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen?style=flat-square)
+## Aurora
+
+A complete operating system in your browser — kernel, window manager, VFS, apps. Zero dependencies.
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-browser%20OS-F15A24?style=flat-square&logo=typescript)](.) [![CI](https://img.shields.io/github/actions/workflow/status/Hartwell-Labs/Aurora/ci.yml?branch=main&style=flat-square&label=CI)](.)
+[![License](https://img.shields.io/badge/license-MIT-F15A24?style=flat-square)](LICENSE) [![Website](https://img.shields.io/badge/site-hartwell--labs.github.io-4f46e5?style=flat-square)](https://hartwell-labs.github.io)
+
+[Website](https://hartwell-labs.github.io) · [All products](https://hartwell-labs.github.io/products/) · [Security](https://hartwell-labs.github.io/security/) · [Hack the Lab](https://github.com/Hartwell-Labs/hack-the-lab)
+
+</div>
 
 **A complete operating system running in your browser.**
 
@@ -184,3 +189,14 @@ docker run -p 8080:80 ghcr.io/bartoszosiej/aurora-os:latest
 MIT — do whatever you want with it.
 
 ---
+---
+
+<div align="center">
+
+**[Hartwell Labs](https://github.com/Hartwell-Labs)** — security systems, languages and tools, built in the open.
+
+[Website](https://hartwell-labs.github.io) · [All products](https://hartwell-labs.github.io/products/) · [Security policy](https://hartwell-labs.github.io/security/) · [Report a vulnerability](https://hartwell-labs.github.io/security/)
+
+<sub>MIT License · © 2026 Hartwell Labs</sub>
+
+</div>
