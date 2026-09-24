@@ -1,3 +1,18 @@
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/Hartwell-Labs/.github/main/profile/assets/hartwell-logo.svg" width="72" alt="Hartwell Labs" />
+
+## Aurora OS
+
+Kompletny system operacyjny działający w przeglądarce — jądro, menedżer okien, wirtualny system plików i 14 aplikacji. TypeScript, zero zależności runtime.
+
+[![Hartwell Labs](https://img.shields.io/badge/%E2%AC%A1-Hartwell_Labs-F15A24?style=flat-square)](https://hartwell-labs.github.io)
+[![License](https://img.shields.io/badge/license-MIT-F15A24?style=flat-square)](LICENSE) [![Website](https://img.shields.io/badge/site-hartwell--labs.github.io-4f46e5?style=flat-square)](https://hartwell-labs.github.io)
+
+[Strona](https://hartwell-labs.github.io) · [Wszystkie produkty](https://hartwell-labs.github.io/products/) · [Polityka bezpieczeństwa](https://hartwell-labs.github.io/security/) · [🇬🇧 English](README.md)
+
+</div>
+
 # ◈ AURORA OS
 
 **Kompletny system operacyjny działający w przeglądarce.**
@@ -125,4 +140,14 @@ komendy).
 
 ## 📜 Licencja
 
-MIT — rób z tym, co chcesz.
+MIT — rób z tym, co chcesz. Część narzędzi [Hartwell Labs](https://hartwell-labs.github.io).
+
+---
+
+<div align="center">
+
+**[Hartwell Labs](https://github.com/Hartwell-Labs)** — systemy bezpieczeństwa, języki i narzędzia, budowane jawnie.
+
+<sub>Licencja MIT · © 2026 Hartwell Labs</sub>
+
+</div>
