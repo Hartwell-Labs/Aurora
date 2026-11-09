@@ -15,7 +15,7 @@ jobs:
       - run: echo "Building artifacts for ${{ github.ref_name }}"
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@3454372f43399081ed03b604cb2d021dabca52bb # v3.8.0
+        uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v3.8.0
 
       - name: Sign release artifacts
         if: github.event_name != 'pull_request'
